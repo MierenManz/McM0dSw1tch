@@ -7,6 +7,9 @@ A simple program that can install modpacks for you written in autohotkey(AHK)
 1. Download the .exe file
 2. Place all your modpacks in the same location as the .exe
 3. Run the .exe file
+4. Follow the steps on screen
+5. Click on the button that has the modpack you want to play
+6. Have Fun :D
 
 ## Common errors
 
