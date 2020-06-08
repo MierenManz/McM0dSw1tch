@@ -1,4 +1,4 @@
-﻿#NoEn
+﻿#NoEnv
 #NoTrayIcon
 SendMode Input
 SetWorkingDir %A_ScriptDir%
@@ -28,9 +28,13 @@ Loop, Files, %A_ScriptDir%\*.*, D
 Sort, FileList, R
 Mods := StrSplit(FileList, "`n")
 
-Gui, New
+Gui, indx:New
 Gxloc := 0
 Gyloc := 0
+if (Mods = "") 	{
+	Msgbox,, Mod Switcher, You got no modpacks :D
+	exitapp
+	}
 for modpacknum, element in Mods {
 	if (element = "") {
 	}
@@ -41,11 +45,13 @@ for modpacknum, element in Mods {
 	}
 	else {
 	}
-		Gui, Add, Button, x%Gxloc% y%Gyloc% w55 h22 v%element% gmodmove, %element%
+		Gui, indx:Add, Button, x%Gxloc% y%Gyloc% w55 h22 v%element% gmodmove, %element%
 		Gxloc := Gxloc+60
 	}
 }
-gui, show
+Menu MenuBar, Add, Settings, Setmen
+Gui indx:Menu, MenuBar
+Gui, indx:Show
 return
 	
 modmove:
@@ -53,7 +59,30 @@ modmove:
 	FileRemoveDir, %Dest%, 1
 	FileCopyDir, %A_ScriptDir%\%A_guiControl%, %Dest%, 1
 	return
+}
+Setmen:
+	{
+	Gui, setts:New
+	Gui, setts:add, button, x0 y0 w180 h22 gLocchange, Change modfolder location
+	Gui, setts:add, button, x0 y30 w180 h22 gFeed, Give me feedback :D
+	Gui, setts:Show
+	return
+}
+Feed:
+	{
+	run, http://freesuggestionbox.com/pub/puhrnem
+	return
 	}
+Locchange:
+	{
+	FileSelectFolder, Dest, c:\users
+	if errorlevel {
+		Msgbox,, Mod Switcher, You have cancelled the action!
+		return
+	} else {
+		IniWrite, %Dest%, %A_ScriptDir%\settings.ini, start, MODS
+		return
+}}
 GuiClose:
 	{
 	Msgbox,, Mod Switcher, Bye :D
