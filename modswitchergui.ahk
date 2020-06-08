@@ -1,14 +1,15 @@
 ﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
+#NoTrayIcon
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 settFile := A_ScriptDir . "\settings.ini" ; settings file
 
 if !fileexist(settFile) { ; if settings file doesn't exist, it will be created
-	msgbox, you haven't selected the modfolder location`nClick okay to continue ; messagebox
+	Msgbox,, Mod Switcher, you haven't selected the modfolder location`nClick okay to continue ; messagebox
 	FileSelectFolder, Dest, c:\users ; Select minecraft mods folder
 	if errorlevel { ; if the operation is cancelled, stop the program
-		msgbox, you cancelled selecting a folder
+		Msgbox,, Mod Switcher, You have cancelled the action!
 		exitapp
 		}
 	else {
@@ -18,7 +19,7 @@ if !fileexist(settFile) { ; if settings file doesn't exist, it will be created
 	}
 }
 else {
-	Msgbox, ModSwitcher is starting! `n Click okay to continue
+	Msgbox,, Mod Switcher, ModSwitcher is starting! `n Click okay to continue
 }
 
 IniRead, dest, %A_ScriptDir%\settings.ini, start, MODS ; reads mods folder location
@@ -56,6 +57,6 @@ modmove:
 	}
 GuiClose:
 	{
-	msgbox, BYE!
+	Msgbox,, Mod Switcher, Bye :D
 	exitapp
 	}
