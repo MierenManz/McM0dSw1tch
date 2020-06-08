@@ -1,20 +1,19 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
+﻿#NoEn
 #NoTrayIcon
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-settFile := A_ScriptDir . "\settings.ini" ; settings file
+SendMode Input
+SetWorkingDir %A_ScriptDir%
+settFile := A_ScriptDir . "\settings.ini"
 
-if !fileexist(settFile) { ; if settings file doesn't exist, it will be created
-	Msgbox,, Mod Switcher, you haven't selected the modfolder location`nClick okay to continue ; messagebox
-	FileSelectFolder, Dest, c:\users ; Select minecraft mods folder
-	if errorlevel { ; if the operation is cancelled, stop the program
+if !fileexist(settFile) {
+	Msgbox,, Mod Switcher, you haven't selected the modfolder location`nClick okay to continue
+	FileSelectFolder, Dest, c:\users
+	if errorlevel {
 		Msgbox,, Mod Switcher, You have cancelled the action!
 		exitapp
 		}
 	else {
-	fileappend, settings.ini ; create the settings file
-	IniWrite, %Dest%, %A_ScriptDir%\settings.ini, start, MODS ; write the mods folder location to the settings file
+	fileappend, settings.ini
+	IniWrite, %Dest%, %A_ScriptDir%\settings.ini, start, MODS 
 	
 	}
 }
@@ -22,7 +21,7 @@ else {
 	Msgbox,, Mod Switcher, ModSwitcher is starting! `n Click okay to continue
 }
 
-IniRead, dest, %A_ScriptDir%\settings.ini, start, MODS ; reads mods folder location
+IniRead, dest, %A_ScriptDir%\settings.ini, start, MODS
 FileList := ""
 Loop, Files, %A_ScriptDir%\*.*, D
     FileList .= "`n" A_LoopFileName
