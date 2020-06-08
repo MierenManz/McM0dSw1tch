@@ -23,5 +23,14 @@ Me and myself. I'll try to update it with feature requests and ease of use. This
 
 If you want to help me, please look at the code and implement the changes you like to see. I'll go over them if you post them in the issue's
 
+##Changelog
+###v1.02:
+- Added QoL features
+- Added settings menu with the QoL features
+###v1.01
+- Fixed small bugs & added README.md
+###v1.0
+- Initial Launch
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
