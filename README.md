@@ -31,6 +31,7 @@ If you want to help me, please look at the code and implement the changes you li
 ### v1.03:
 - Fixed small bug where the UI wouldn't render if there were no modpacks available
 - Fixed small bug where the UI wouldn't close
+- Added "remove mods" Button on the UI
 - Optimization
 ### v1.02:
 - Added QoL features
