@@ -1,8 +1,11 @@
 ﻿#NoEnv
-#NoTrayIcon
+;#NoTrayIcon
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 settFile := A_ScriptDir . "\settings.ini"
+FileList := ""
+Gxloc := 0
+Gyloc := 0
 
 if !fileexist(settFile) {
 	Msgbox,, Mod Switcher, you haven't selected the modfolder location`nClick okay to continue
@@ -12,29 +15,29 @@ if !fileexist(settFile) {
 		exitapp
 		}
 	else {
-	fileappend, settings.ini
+	;fileappend, settings.ini
 	IniWrite, %Dest%, %A_ScriptDir%\settings.ini, start, MODS 
 	
 	}
 }
 else {
 	Msgbox,, Mod Switcher, ModSwitcher is starting! `n Click okay to continue
+	IniRead, dest, %A_ScriptDir%\settings.ini, start, MODS
 }
 
-IniRead, dest, %A_ScriptDir%\settings.ini, start, MODS
-FileList := ""
 Loop, Files, %A_ScriptDir%\*.*, D
     FileList .= "`n" A_LoopFileName
 Sort, FileList, R
 Mods := StrSplit(FileList, "`n")
 
 Gui, indx:New
-Gxloc := 0
-Gyloc := 0
-if (Mods = "") 	{
-	Msgbox,, Mod Switcher, You got no modpacks :D
+modpacksamount := Mods.Length()
+
+if (modpacksamount = 0) {
+	Msgbox,, Mod Switcher, You got no modpacks :-(
 	exitapp
 	}
+
 for modpacknum, element in Mods {
 	if (element = "") {
 	}
@@ -45,21 +48,31 @@ for modpacknum, element in Mods {
 	}
 	else {
 	}
-		Gui, indx:Add, Button, x%Gxloc% y%Gyloc% w55 h22 v%element% gmodmove, %element%
+		Gui, indx:Add, Button, x%Gxloc% y%Gyloc% w55 h22 v%element% gModmove, %element%
 		Gxloc := Gxloc+60
 	}
 }
+
 Menu MenuBar, Add, Settings, Setmen
 Gui indx:Menu, MenuBar
+Gui, indx:Add, Button, x%Gxloc% y%Gyloc% w55 h30 v%element% gRem, Remove mods
 Gui, indx:Show
 return
-	
-modmove:
+
+Rem:
+	{
+	FileRemoveDir, %Dest%, 1
+	Msgbox,, Mod Switcher, All mods have been removed
+	return
+}
+Modmove:
 	{
 	FileRemoveDir, %Dest%, 1
 	FileCopyDir, %A_ScriptDir%\%A_guiControl%, %Dest%, 1
+	Msgbox,, Mod Switcher, Finished installing modpack, click OK to continue
 	return
 }
+
 Setmen:
 	{
 	Gui, setts:New
@@ -68,11 +81,13 @@ Setmen:
 	Gui, setts:Show
 	return
 }
+
 Feed:
 	{
 	run, http://freesuggestionbox.com/pub/puhrnem
 	return
-	}
+}
+	
 Locchange:
 	{
 	FileSelectFolder, Dest, c:\users
@@ -82,9 +97,10 @@ Locchange:
 	} else {
 		IniWrite, %Dest%, %A_ScriptDir%\settings.ini, start, MODS
 		return
-}}
-GuiClose:
+	}
+}
+
+indxGuiClose:
 	{
-	Msgbox,, Mod Switcher, Bye :D
 	exitapp
 	}
