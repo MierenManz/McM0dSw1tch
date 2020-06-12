@@ -1,8 +1,6 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-Gxloc := 0
+﻿Gxloc := 0
 Gyloc := 0
+FileList := ""
 Loop, Files, %A_ScriptDir%\*.*, D
     FileList .= "`n" A_LoopFileName
 Sort, FileList, R

@@ -2,10 +2,7 @@
 ;	|		currently in the works. Can't get it to work without exception on		|
 ;	|		Windows Defender. This is a huge security risk!! That is why this		|
 ;	|		is not done yet.												 		|
-;	|-------------------------------------------------------------------------------|
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+;	--------------------------------------------------------------------------------|
 ModP:;Called from <mainGUI>
 	{
 	Gui, Modpdl:New
@@ -36,8 +33,8 @@ Tekkit:
 		Loop {
 			sleep 10
 			unzippedItems := psh.Namespace( sUnz ).items().count
-			math := unzippedItems.count() / zippedItems.count() * 100
-			ToolTip Unzipping in progress.. %math% done
+			;math := unzippedItems.count() / zippedItems.count() * 100
+			ToolTip Unzipping in progress.. ;%math% done
 			if (zippedItems.count() = unzippedItems.count())
 				break
 		}

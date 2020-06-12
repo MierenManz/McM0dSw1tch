@@ -3,7 +3,6 @@
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 settFile := A_ScriptDir . "\settings.ini"
-FileList := ""
 
 if !fileexist(settFile) {
 	Msgbox,, Mod Switcher, you haven't selected the modfolder location`nClick okay to continue
