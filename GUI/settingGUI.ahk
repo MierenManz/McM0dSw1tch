@@ -27,5 +27,5 @@ Locchange:
 
 settsGuiClose:
 	{
-	indx:Show
+	Gui, indx:Show
 	}
