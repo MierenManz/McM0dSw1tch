@@ -24,22 +24,26 @@ Me and myself. I'll try to update it with feature requests and ease of use. This
 If you want to help me, please look at the code and implement the changes you like to see. I'll go over them if you post them in the issue's
 
 ## Changelog
-### Planned for v1.04
-- Add more QoL features like nicer ui
-- Add Modpack downloads
-- Optimize program
+
+### Planned for v1.05
+- currently nothing
+### v1.04
+- Rewrote script into multiple scripts. Check the Folders for the right scripts
 ### v1.03:
-- Fixed small bug where the UI wouldn't render if there were no modpacks available
-- Fixed small bug where the UI wouldn't close
-- Added "remove mods" Button on the UI
+- Fixed small bug where the UI wouldn't render if there were no modpacks available.
+- Fixed small bug where the UI wouldn't close.
+- Added "remove mods" Button on the UI.
 - Optimization
 ### v1.02:
-- Added QoL features
-- Added settings menu with the QoL features
+- Added QoL features.
+- Added settings menu with the QoL features.
 ### v1.01
-- Fixed small bugs & added README.md
+- Fixed small bugs & added README.md.
 ### v1.0
-- Initial Launch
+- Initial Launch.
+### Scraped
+Everything here is scraped or will be added much later for whatever reason
+- Premade Modpack downloads.
 
 ## License
 MIT License
