@@ -28,7 +28,7 @@ If you want to help me, please look at the code and implement the changes you li
 ### Planned for v1.05
 - currently nothing
 ### v1.04
-- Rewrote script into multiple scripts. Check the Folders for the right scripts
+- Rewrote script into multiple scripts. Check Release page for the download!
 ### v1.03:
 - Fixed small bug where the UI wouldn't render if there were no modpacks available.
 - Fixed small bug where the UI wouldn't close.
