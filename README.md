@@ -48,7 +48,7 @@ Everything here is scraped or will be added much later for whatever reason
 ## License
 MIT License
 
-Copyright (c) 2020 Christiaan van Boheemen
+Copyright (c) 2020 Skyler van Boheemen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
